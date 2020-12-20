@@ -9,8 +9,7 @@ function bonAppetit(bill, k, b) {
         }
         
     }
-    
-        let totalArr = sum(arr);
+        let totalArr = arr.reduce((acc, curr) => acc + curr, 0);
         let bayaranAnton = totalArr/2;
         let hasilBayar = b - bayaranAnton;
         

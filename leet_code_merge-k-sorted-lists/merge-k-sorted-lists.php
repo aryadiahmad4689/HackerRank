@@ -20,8 +20,8 @@ class Solution {
     public $head = null;
     public $tail = null;
     function mergeKLists($lists){
-        $data=[];        
-        for($i=0; $i<count($lists); $i++){
+        $data=[]; // O(n)        
+        for($i=0; $i<count($lists); $i++){ // O(n^2)
                 array_push($data,$lists[$i]->val);
                 $head =$lists[$i]->next;
                 while($head != null){
@@ -30,20 +30,19 @@ class Solution {
                 }
         }
     
-        sort($data);
-        $node = new Solution;
-        for($i=0; $i<count($data);$i++){
+        sort($data); // O(n)
+        $node = new Solution; // O(n)
+        for($i=0; $i<count($data);$i++){ // O(n)
             if ($data[$i] != null || $data[$i] > -1){
                  $node->createNode($data[$i]);
             }
             
         }
-        // var_dump($node->head);
         return $node->head;
     }
     
     function createNode($value){
-        $node =new ListNode($value);
+        $node =new ListNode($value);// O(n)
 
         if($this->head == null)
         {
